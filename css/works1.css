@@ -1,0 +1,90 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #F8F6F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 40px;
+    font-weight: 500;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    margin: 20px 20px 20px;
+}
+
+span.description {
+    display: flex;
+    flex-direction: column;
+}
+.colors{
+    color: #FF99CC;
+    font-weight: 600;
+ }
+
+ .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.project .description {
+    color: gray;
+}
+
+.gray {
+    color: lightgray;
+    font-weight: normal;
+}
+
+.coming-soon {
+    opacity: 0.5; /* Hace que se vea más tenue */
+    position: relative;
+}
+
+.coming-soon::after {
+    content: "Próximamente";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
