@@ -3,32 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favico.png">
     <title>PortfolioSARP✈️</title>
     <link rel="stylesheet" href="./css/bio.css">
 </head>
 <body>
     <header>
         <nav>
-            <a class="colors" href="/Bio.html">BIO</a>
-            <a href="/Work.html">WORKS</a>       
-            <a href="/Experiments.html">EXPERIMENTS</a>      
-            <a href="/contacto.html">CONTACT</a>
+            <a data-i18n="BIO" class="colors" href="/Bio.html">BIO</a>
+            <a data-i18n="TRABAJOS" href="/Work.html">WORKS</a>       
+            <a data-i18n="EXPERIMENTOS" href="/Experiments.html">EXPERIMENTS</a>      
+            <a data-i18n="CONTACTO" href="/contacto.html">CONTACT</a>
         </nav>
+        <a class="lg" href="#" onclick="changeLanguage('es', this)">Español</a> | 
+        <a class="colors lg" href="#" onclick="changeLanguage('en', this)">English</a>
     </header>
 
     <section class="bio">
-        <div class="title-section" >
-            <h1> BIO</h1>
-        </div>
-   
-        <div class="content-section">
-            <p>
-               <span class="colors"> I'm a frontend developer </span>  with a passion for crafting <span class="colors">seamless, interactive experiences. </span>  My expertise goes beyond just the frontend—I have experience with <span class="colors"> API development, Node.js, and full-stack logic, </span>  allowing me to build <span class="colors">well-rounded, high-performance applications. </span> With a strong technical foundation, I make complex concepts accessible and engaging. I love creating <span class="colors"> intuitive user interfaces,</span>  experimenting with <span class="colors"> animations,</span>  and bringing digital experiences to life. More than just building, I aim <span class="colors"> to foster great developer experiences and communities</span>  around the tools I work with. 🚀
-            </p>
-
+        <div class="title-section">
+            <h1 id="bio-title">BIO</h1>
         </div>
 
+        <div id="bio-content" class="content-section">
+            <p class="colors" data-i18n="developer">I'm a frontend developer</p>
+            <p data-i18n="passion">with a passion for crafting</p>
+            <p class="colors" data-i18n="experiences">seamless, interactive experiences.</p>
+            <p data-i18n="expertise">My expertise goes beyond just the frontend—I have experience with</p>
+            <p class="colors" data-i18n="api_dev">API development, Node.js, and full-stack logic.</p>
+            <p data-i18n="allowing">allowing me to build</p>
+            <p class="colors" data-i18n="high_performance">well-rounded, high-performance applications.</p>
+            <p data-i18n="foundation">With a strong technical foundation, I make complex concepts accessible and engaging.</p>
+            <p data-i18n="love">I love creating</p>
+            <p class="colors" data-i18n="ui">intuitive user interfaces,</p>
+            <p data-i18n="experimenting">experimenting with</p>
+            <p class="colors" data-i18n="animations">animations,</p>
+            <p data-i18n="life">and bringing digital experiences to life.</p>
+            <p data-i18n="more_than">More than just building, I aim</p>
+            <p class="colors" data-i18n="communities">to foster great developer experiences and communities</p>
+            <p data-i18n="around">around the tools I work with.</p>
+        </div>
 
     </section>
 </body>
+<script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="./js/lg.js"></script>
+
+<script>
+     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+
+// 1️⃣ Aparece el header con fade-in y desplazamiento desde arriba
+tl.from("header", { opacity: 0, y: -20 })
+
+// 2️⃣ Aparecen los enlaces del nav escalonadamente
+  .from("nav a", { opacity: 0, y: 10, stagger: 0.2, duration: 0.8 }, "-=0.5")
+
+// 3️⃣ Selector de idioma aparece después del nav
+  .from(".lg", { opacity: 0, y: -10, stagger: 0.2, duration: 0.8 }, "-=0.6")
+
+// 4️⃣ El título BIO aparece con fade-in y desplazamiento
+  .from("#bio-title", { opacity: 0, y: 20 }, "-=0.5")
+
+// 5️⃣ Muestra la sección de contenido con fade-in
+  .from("#bio-content", { opacity: 0 }, "-=0.5")
+
+// 6️⃣ Animación de aparición de los párrafos, uno por uno
+  .from("#bio-content p", { opacity: 0, y: 10, stagger: 0.2, duration: 0.8 }, "-=0.5");
+
+// 7️⃣ Interacción con las palabras resaltadas (.colors)
+document.querySelectorAll(".colors").forEach(item => {
+    item.addEventListener("mouseenter", () => {
+        gsap.to(item, { scale: 1.1, textShadow: "0px 0px 10px #00ffff", duration: 0.3 });
+    });
+    item.addEventListener("mouseleave", () => {
+        gsap.to(item, { scale: 1, textShadow: "none", duration: 0.3 });
+    });
+});
+</script>
 </html>

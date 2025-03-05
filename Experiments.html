@@ -4,42 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortfolioSARP✈️</title>
-    <link rel="stylesheet" href="./css/works.css">
+    <link rel="stylesheet" href="./css/works1.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="/Bio.html">BIO</a>
-            <a href="/Work.html">WORKS</a>       
-            <a class="colors" href="/Experiments.html">EXPERIMENTS</a>      
-            <a href="/contacto.html">CONTACT</a>
-
+            <a data-i18n="BIO" href="/Bio.html">BIO</a>
+            <a data-i18n="TRABAJOS" href="/Work.html">WORKS</a>       
+            <a class="colors" data-i18n="EXPERIMENTOS" href="/Experiments.html">EXPERIMENTS</a>      
+            <a data-i18n="CONTACTO" href="/contacto.html">CONTACT</a>
           
         </nav>
     </header>
     
-    <h1>Experiments</h1>
-    <div class="container">
+    <h1 data-i18n="EXPERIMENTOS">Experiments</h1>
+    <div id="experiments-container" class="container">
+        <p id="experiments-text" data-i18n="data-exp">
+            Own projects where I explore new technologies, frameworks, and concepts.
+        </p>
         
-        <p>Own projects where I explore new technologies, frameworks and concepts.</p>
-        
-        <div class="project">
+        <div class="project" id="project-tesla">
             <span class="title">Clone Tesla Model S</span>
             <span class="description">
-                Built with Astro / TailwindCSS 
+                Built with Astro / TailwindCSS  
                 <span class="colors">Landing Page Experiment</span>
             </span>
         </div>
         
-        <div class="project">
+        <div class="project" id="project-arkanoid">
             <span class="title">Arkanoid Clone</span>
             <span class="description">
-                JavaScript Vanilla / Canvas   
+                JavaScript Vanilla / Canvas  
                 <span class="colors">Game Experiment</span>
             </span>
         </div>
         
-        <div class="project">
+        <div class="project" id="project-promanager">
             <span class="title">ProManager</span>
             <span class="description">
                 MERN Stack / API Restful / React / Node.js  
@@ -47,7 +47,7 @@
             </span>
         </div>
         
-        <div class="project">
+        <div class="project" id="project-scrapper">
             <span class="title">Scrapper Jobs</span>
             <span class="description">
                 Node.js / Cheerio / QR Generator / WhatsApp Integration  
@@ -55,7 +55,7 @@
             </span>
         </div>
         
-        <div class="project">
+        <div class="project" id="project-animation">
             <span class="title">Frame-by-Frame Animation Clone</span>
             <span class="description">
                 JavaScript Vanilla / Animation Logic  
@@ -63,17 +63,42 @@
             </span>
         </div>
         
-        <div class="project coming-soon">
+        <div class="project coming-soon" id="project-oposiciones">
             <span class="title">Test de Oposiciones</span>
             <span class="description">
                 Next.js / React Native / Relational & Non-Relational Databases / API Restful  
                 <span class="colors">Education & Exam Prep Experiment</span>
             </span>
         </div>
+    </div>
+
         
         
 
     
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+<script src="./js/lg.js"></script>
+
+<script>
+    const tlExperiments = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+
+    // 1️⃣ Texto introductorio aparece con fade-in
+    tlExperiments.from("#experiments-text", { opacity: 0, y: 20 })
+
+    // 2️⃣ Proyectos aparecen escalonadamente con un leve deslizamiento
+      .from(".project", { opacity: 0, y: 20, stagger: 0.3, duration: 1.2 });
+
+    // 3️⃣ Efecto hover en cada proyecto
+    document.querySelectorAll(".project").forEach(project => {
+        project.addEventListener("mouseenter", () => {
+            gsap.to(project, { scale: 1.05, duration: 0.3, ease: "power1.out" });
+        });
+        project.addEventListener("mouseleave", () => {
+            gsap.to(project, { scale: 1, duration: 0.3, ease: "power1.out" });
+        });
+    });
+</script>
 </html>

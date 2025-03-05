@@ -21,21 +21,20 @@ body {
 header nav{
     display: flex;
     justify-content: space-evenly;
-    padding: 20px 40px;
+    padding: 20px 0px;
     font-weight: 500;
 }
 
-.colors{
-   color: #FF99CC;
-   font-weight: 600;
-}
+
 
 nav a {
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 0.8rem;
     margin: 0 10px;
 }
+
+
 
 
 .bio{
@@ -46,8 +45,22 @@ nav a {
     justify-content: center;
 }
 
+.lg{
+    color:#000000;
+}
+
+.lg:link{
+    text-decoration: none;
+  
+}
+
+.colors{
+    color: #FF99CC;
+    font-weight: 600;
+ }
 .content-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 10px 100px 0;
@@ -59,5 +72,15 @@ nav a {
 }
 .content-section p{
    
-    font-size: 2.4vw;
+    font-size: 1.5vw;
+}
+
+@media (max-width:360px){
+    nav a {  
+        font-size: 0.8rem;
+    }
+    .content-section p{
+   
+        font-size: 0.6rem;
+    }
 }

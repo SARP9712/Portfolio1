@@ -16,17 +16,20 @@ body {
 header nav{
     display: flex;
     justify-content: space-evenly;
-    padding: 20px 40px;
+    padding: 20px 0;
 }
+
 
 
 
 nav a {
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 0.8rem;
     margin: 0 10px;
 }
+
+
 
 main {
     flex-grow: 1;
@@ -84,7 +87,7 @@ h1 {
 }
 
 .arrow-svg{
-    transform: scale(3.5);
+    width: 20%;
 }
 
 
@@ -97,4 +100,16 @@ img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+}
+
+
+
+@media (max-width:360px){
+    nav a {  
+        font-size: 0.8rem;
+    }
+
+    .arrow-svg{
+        width: 60%;
+    }
 }
