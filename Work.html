@@ -19,24 +19,43 @@
     <h1 data-i18n="data-work" class="section"> Latest Works</h1>
 <div class="container">
         <div class="project" id="project-1">
-            <span class="title">esFenomenal</span>
+            <span class="title"> <a href="https://esfenomenal.com/">esFenomenal</a></span>
             <span class="description">Responsive Design / Interactions / GSAP / Barba.js / Sass <span class="colors">Landing Page</span></span>
+           
+           <div class="project_container-img">
+             <img src="./assets/img/es.png"  alt="">
+            </div>    
+        
         </div>
+
         <div class="project" id="project-2">
-            <span class="title ">esFenomenal404</span>
+            <span class="title "> <a href="https://esfenomenal.com/404/">esFenomenal404</a></span>
             <span class="description">UI / Design System / Motion Design / Development <span class="colors">Page 404</span></span>
+            <div class="project_container-img">
+            <img src="./assets/img/404es.png"  alt="">
+            </div>
         </div>
         <div class="project" id="project-3">
-            <span class="title">CasaDelLibro</span>
+            <span class="title"> <a href="https://www.casadellibro.com/tu-libro-deseado">CasaDelLibro</a></span>
             <span class="description">UI Clone / Javascript / E-commerce <span class="colors">E-commerce</span></span></span>
+            <div class="project_container-img">
+            <img src="./assets/img/404L.png"  alt="">
+            </div>    
         </div>
+
         <div class="project" id="project-4">
-            <span class="title ">Liceo-LMS</span>
+            <span class="title "> <a href="https://liceodefarmacia.com/">Liceo-LMS</a></span>
             <span class="description">UI Improvements / Angular & Sass <span class="colors">E-learning App</span></span>
+            <div class="project_container-img">
+            <img src="./assets/img/liceo.png"  alt="">
+           </div>
         </div>
         <div class="project" id="project-5">
-            <span class="title ">Travelly</span>
+            <span class="title "> <a href="https://www.bytour.es/es-es">Bytour</a></span>
             <span class="description">UI / Frontend Development / Symfony 5 <span class="colors">Flight search web application.</span></span>
+            <div class="project_container-img">
+            <img src="./assets/img/by.png"  alt="">
+          </div>
         </div>
     </div>
 
@@ -50,6 +69,26 @@
 <!-- <script src="./js/Animate.js"></script> -->
 
 <script>
+    const containProject= document.querySelectorAll(".project");
+
+    console.log(containProject)
+
+    containProject.forEach(project => {
+    // Seleccionamos la imagen dentro del proyecto específico
+    let imgProject = project.querySelector("img");
+
+    if (imgProject) {
+        project.addEventListener("mouseover", () => {
+            imgProject.style.opacity = "1";
+        });
+
+        project.addEventListener("mouseleave", () => {
+            imgProject.style.opacity = "0";
+        });
+    }
+});
+
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
 
     // 1️⃣ Nav aparece desde arriba

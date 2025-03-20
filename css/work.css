@@ -31,7 +31,9 @@ nav a {
     margin: 0 10px;
 }
 
-
+a{
+    color: black;
+}
 .works {
     margin-top: 40px;
     max-width: 900px;

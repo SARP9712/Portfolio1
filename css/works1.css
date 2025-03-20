@@ -36,18 +36,52 @@ h1 {
     font-weight: bold;
 }
 
+
+
+span a{
+    color:black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img {
+    width: 40vw;
+    height: 20vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute; /* Para que pueda superponerse */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar la imagen */
+    z-index: 100; /* Muy alto para asegurarse de que quede arriba */
+}
+.project_container-img {
+    position: absolute;
+    left: 40%;
+    top: 60%;
+    bottom: 100px; /* Corregido */
+    z-index: 99;
+}
+
+
+span.description {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 20;
+}
+
+
 .project {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    margin: 20px 20px 20px;
-}
-
-span.description {
-    display: flex;
-    flex-direction: column;
+    margin: 20px;
+    cursor: pointer;
+    z-index: 0;
 }
 .colors{
     color: #FF99CC;
